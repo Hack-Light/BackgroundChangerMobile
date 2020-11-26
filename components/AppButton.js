@@ -4,21 +4,13 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import COLORS from "../constants/Theme";
 
-export default function AppButton({
-  title,
-  onPress,
-  color = "primary",
-  textColor
-}) {
-  let colorStlye = color.toUpperCase();
+export default function AppButton({ title, onPress, color }) {
   return (
     <TouchableOpacity
-      style={[styles.buttons, { backgroundColor: COLORS[colorStlye] }]}
+      style={[styles.buttons, { backgroundColor: color }]}
       onPress={onPress}
     >
-      <Text style={[styles.title, { color: COLORS[textColor.toUpperCase()] }]}>
-        {title}
-      </Text>
+      <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
 }
@@ -26,7 +18,7 @@ export default function AppButton({
 const styles = StyleSheet.create({
   buttons: {
     marginVertical: 10,
-    backgroundColor: COLORS.WHITE,
+    backgroundColor: "#5E72E4",
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
@@ -34,7 +26,7 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   title: {
-    color: COLORS.BLACK,
+    color: "#FFFFFF",
     fontSize: 18,
     textTransform: "uppercase",
     fontWeight: "bold"
