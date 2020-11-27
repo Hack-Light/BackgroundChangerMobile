@@ -27,11 +27,17 @@ export default function App() {
         changeColor();
       }, 500)
     );
+    setPlaying(true);
+  };
+
+  const handleChange = () => {
+    changeColor;
   };
 
   const handleStop = () => {
     clearInterval(timer);
     console.log("clicked");
+    setPlaying(false);
   };
 
   return (
@@ -41,7 +47,7 @@ export default function App() {
         title="Stop"
         color="#fc5c65"
         onPress={handleStop}
-        display={playing ? "block" : "none"}
+        displaytype={playing ? "flex" : "none"}
       />
       <AppButton title="Change" color="#11CDEF" />
     </Screen>
