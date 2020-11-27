@@ -22,16 +22,19 @@ export default function App() {
   };
 
   const handlePlay = () => {
-    setTimer(
-      setInterval(() => {
-        changeColor();
-      }, 500)
-    );
-    setPlaying(true);
+    if (!playing) {
+      setTimer(
+        setInterval(() => {
+          changeColor();
+        }, 500)
+      );
+      setPlaying(true);
+    }
   };
 
   const handleChange = () => {
-    changeColor;
+    clearInterval(timer);
+    changeColor();
   };
 
   const handleStop = () => {
@@ -49,7 +52,7 @@ export default function App() {
         onPress={handleStop}
         displaytype={playing ? "flex" : "none"}
       />
-      <AppButton title="Change" color="#11CDEF" />
+      <AppButton title="Change" color="#11CDEF" onPress={handleChange} />
     </Screen>
   );
 }
